@@ -1,0 +1,9 @@
+1  Write a short script which will print current time, wait for 1 minute and print the time again
+2  Write an infinite script which will print the time every second (interrupt using Ctrl+C in command line)
+3  Write a script which will print a random number from 0 to 50 (check http://php.net/manual/en/function.rand.php)
+4  Write an infinite script which will print a different random number every second
+5  Modify the previous program, so it also prints the verbal information whether the random number is greater or lower than 500
+6  Write a similar program, which prints the number only if it is divisible by 3 (use operator modulo, N % M)
+7  Write a similar program, which prints the number only if it is bigger then the digit representing the number of seconds of the current time.
+8  Write a program which generates a random number from 0 to 50 every second. When the number is greater than 40, it prints it and finishes (use break; statement).
+9  Write a similar program. It finishes if the number equals to the digit representing the number of seconds of the time when it was started.

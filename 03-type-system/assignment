@@ -1,0 +1,37 @@
+###0. Playing with letters
+
+0.0 Use function ord() to retrieve a numeric (ASCII) representation of a character: http://php.net/manual/en/function.ord.php
+0.1 Generate random letters in an infinite loop, using rand() and chr(), but use the number only if the number stands for a valid lowercase OR uppercase letter.
+0.2 Create a program which contains two loops (iterations). In the first one, generate 100 random numbers and put them into an array. In the second part, iterate over this array and print the numbers bigger than 20.
+0.3 Modify the previous program so it does not print the numbers, but the indexes (positions in the array) where these numbers are.
+0.4 Modify the previous program so it prints only the index of first number greater than 20 (first occurence of such number).
+0.5 Create a program which prints numbers representing ASCII positions of letters of your name and surname. Hint: Create an array of the letters first, then iterate over that array and use ord() function.
+
+
+###1. Processing a CSV file
+
+1.0 Create a program which reads a CSV file containing one product on each line. Find the cheapest product and print its name and price. Do not print data of any other product.
+1.1 Modify the previous program so it uses fgetcsv() function. What is the advantage of using it, instead of file() and explode()? Hint: you will need to open the file separately using fopen(), save the "handle" into a variable and only then call fgetcsv.
+1.2 Create a similar program, which reads products information from a CSV file. Each product has a currency. Print a list of all currencies which appear in the CSV file - but each currency only once! Hint: Build a list of currencies first, using in_array function to find out whether we already have the currency in the list or not. The printing part is easy then.
+
+
+###2. FizzBuzz and Random Arrays
+
+2.0 (Refresh your memory checking the algorithmic homework from the first lesson).
+2.1 Generate an array of 50 random numbers (range from 0 to 99). Create a program which finds the biggest of these numbers and prints it, along with the index (position) of the number in the array.
+2.2 Create a similar program which calculates an average (mean) of the array.
+2.3 Try implementing the previous two tasks using built-in functions max() (for the former) and array-sum() (the latter) - or without these functions, if you already used them (basically the other way):
+http://php.net/manual/en/function.array-sum.php
+http://php.net/manual/en/function.max.php
+2.4, 2.5 [Optional]: Create another two similar programs which find modal and median of the array of 50 random numbers.
+2.6 Create the standard FizzBuzz program: Print numbers from 1 to 500 with additional "Fizz" when the number is divisible by 3, Buzz when divisible by 5 and FizzBuzz when divisible by 3 AND 5. Remember algorithmic thinking!
+2.7 [Optional]: How would you approach FizzBuzz++, where you also need to find out whether the number is prime? How do you find out whether a number is prime at the first place? Hint: Use pen-n-paper to find an algorithmic way to get this information (prime or not) just for one number.
+2.8 Use rand() function to generate a number. Use this number as a size (length) of an array, and generate an array of random numbers of this size.
+2.9 Modify the previous program so it creates an array of arrays of random numbers. Hint: Generate the first number, which determines the length of the "main" array. Instead of filling this array directly with numbers, use similar approach to generate another number, which will determine the length of the "nested" array. Only then generate the members. The result (conceptually) should look similarly to the following:
+// The main top-level array, it happens to have 2 members (random)
+$main_array = [
+   // First nested array, it happens to have 6 members (random)
+   [10, 5, 2, 23, 14, 8], // <-- random numbersoption
+   // Second nested array, it happens to have 3 members (random)
+   [5, 13, 2],
+];

@@ -62,7 +62,7 @@ function seventh() {
         $num = rand(0, 60);
         $seconds = intval(date("s"));
         if ($num > $seconds) {
-            echo $num . ", current second is " . $seconds . "\n";
+            echo "$num, current second is $seconds \n";
         }
         sleep(1);
     }
@@ -76,7 +76,7 @@ function eighth() {
     while (true) {
         $num = rand(0, 50);
         if ($num > 40) {
-            echo "Generated " . $num . ", exiting\n";
+            echo "Generated $num, exiting\n";
             break;
         }
         sleep(1);
@@ -89,10 +89,10 @@ function eighth() {
  */
 function ninth() {
     $seconds = intval(date("s"));
-    echo "Starting at " . $seconds . "\n";
+    echo "Starting at $seconds \n";
     while (true) {
         $num = rand(0, 60);
-        echo "Generated " . $num . "\n";
+        echo "Generated $num \n";
         if ($num == $seconds) {
             break;
         }

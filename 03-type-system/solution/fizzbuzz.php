@@ -68,10 +68,11 @@ function modus() {
             $frequencies[$item] = 1;
         }
     }
-    $idx_of_max = implode(", ", array_keys($arr, max($arr)));
+    $idx_of_max = implode(", ", array_keys($frequencies, max($frequencies)));
     echo "Modus is $idx_of_max";
 }
 
+modus();
 /**
  * Create the standard FizzBuzz program: Print numbers from 1 to 500 with additional
  * "Fizz" when the number is divisible by 3, Buzz when divisible by 5 and
@@ -139,3 +140,4 @@ function array_maker_extended() {
     }
     print_r($arr);
 }
+array_maker_extended();

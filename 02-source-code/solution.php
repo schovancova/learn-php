@@ -48,7 +48,7 @@ function sixth() {
     while (true) {
         $num = rand(0, 1000);
         if ($num % 3 == 0) {
-            echo $num . "\n";
+            echo "$num\n";
         }
         sleep(1);
     }

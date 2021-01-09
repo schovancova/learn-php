@@ -1,0 +1,5 @@
+- using === rather than ==
+- fgets doesn't parse CSV data (just splits), fgetcsv does
+- intval($something) can be written as (int)$something
+- in_array has O(n) complexity, use associative arrays if possible for better optimization
+- using camelCase instead of underscores

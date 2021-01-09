@@ -6,7 +6,8 @@
  */
 
 
-function find_cheapest_explode() {
+function find_cheapest_explode()
+{
     $price = $product = null;
     if (($handle = fopen("../files/file.csv", "r")) !== false) {
         while ($data = fgets($handle)) {

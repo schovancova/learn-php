@@ -32,7 +32,7 @@ function mode() {
     $maximum =  max($frequencies);
     $idOfMax = implode(", ", array_keys($frequencies, $maximum));
     echo "Mode is $idOfMax, occurred $maximum times, all occurrences are as follows:\n";
-    sort($frequencies);
+    asort($frequencies);
     print_r($frequencies);
 }
 

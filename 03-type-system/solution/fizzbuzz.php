@@ -45,9 +45,13 @@ function with_built_ins() {
 
 /**
  * Create another two similar programs which find modal and median of the array of 50 random numbers.
+ * @param array $arr
+ * @return int median
  */
-function median() {
-    $arr = generate_arr();
+function median(array $arr=[]):int {
+    if ($arr === []) {
+        $arr = generate_arr();
+    }
     sort($arr);
     $middle = floor((count($arr) - 1) / 2);
     if (count($arr) % 2) {
@@ -55,11 +59,13 @@ function median() {
     } else {
         $median = ($arr[$middle] + $arr[$middle+1])/2;
     }
-    echo "Median is $median";
+    return $median;
 }
 
-function modus() {
-    $arr = generate_arr();
+function modus(array $arr=[]):array {
+    if ($arr === []) {
+        $arr = generate_arr();
+    }
     $frequencies = [];
     foreach ($arr as $item) {
         if (isset($frequencies[$item])) {
@@ -68,11 +74,10 @@ function modus() {
             $frequencies[$item] = 1;
         }
     }
-    $idx_of_max = implode(", ", array_keys($frequencies, max($frequencies)));
-    echo "Modus is $idx_of_max";
+    $idx_of_max = array_keys($frequencies, max($frequencies));
+    return $idx_of_max;
 }
 
-modus();
 /**
  * Create the standard FizzBuzz program: Print numbers from 1 to 500 with additional
  * "Fizz" when the number is divisible by 3, Buzz when divisible by 5 and
@@ -140,4 +145,3 @@ function array_maker_extended() {
     }
     print_r($arr);
 }
-array_maker_extended();

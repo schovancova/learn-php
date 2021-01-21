@@ -1,0 +1,27 @@
+##Test Plan This week, we will design a TestPlan class. Its purpose is to provide the individual steps of the testing process. Each step consists of two logical parts - what we test (test input), and what result we expect (test assertion).
+
+As an example, we might have the following:
+
+Test input: Live API response (JSON) for top widget on TechRadar, where the product ID is 1191350.
+Test assertion: The response contains list of "deals", in which there are valid products (without contracts).
+###Test Input The test input should be represented by TestInput class. It is very simple, it basically consists (i.e. is has properties) of the widget name (string) and (an associative array of) query parameters, which together define an API endpoint (assuming we already know the host name). The parameters are basically the same as the parameters of the last method of HawkDataAccessor you have worked on last week.
+
+Refactor your HawkDataAccessor (or create a new similar class, if you want), so that it will take a TestInput object as a parameter. Then, inside the method of HawkDataAccessor, the actual values are "pulled" from the specific TestInput (use getters) and the respective request is sent to the API.
+
+Test that your code works so far by creating a simple top level program, which creates several different TestInputs, one HawkDataAccessor and prints the JSON response for each request. You should get this working before you continue with the next part. Ideally, json_decode the response inside the HawkDataAccessor class, so the result will be an associative array (use the second parameter true to enforce it to be an array) representing the result, NOT just a long string with bunch of curly brackets.
+
+##Test Input Source Create a class CsvTestInputSource. An object of this class will be given a path to a CSV file, from which it will read the test inputs. As an example, the columns of the CSV might be "widget id", "site", "territory", "article_id". Each row in the file then represents a specific request. CsvTestInputSource will create a new TestInput object from each row. Create a method of the reader, which will return one TestInput at a time. Return null when there are no more inputs (i.e. the we reached the end of the file).
+
+Now, you can amend your top level program (or create a new one, that's up to you). Instead of manually creating each TestInput object, you will just create one CsvTestInputSource, which will start creating these inputs for you, as you specify them in the CSV. The big advantage of such approach is that we can have an overview of the test steps in a spreadsheet, and just make the software crunch through them.
+
+##Test Checks In reality, each test check should be specific per each API endpoint. We might for example check (assert), that response for "DE" territory will return a product in EUR, whereas "GB" request returns a pound product. We will get there eventually, but in this homework, we will work with assertions separately from the requests. Right now, we basically only want to test things which should work "across the board", for all requests (at least these in our input). That includes the widget title, checking whether there are any products, and whether each product is valid (has a numeric price, affiliate link which is a valid URL etc).
+
+Right now, we will create two different checks (assertions), represented by two classes. One for the widget title and another one checking there is an array of "deals" and another array of "contracts" in the response. Each of these classes should have a method checkApiResponse which takes the (already decoded) API response as a parameter. If you remember, we should have this response available as an associative array from our HawkDataAccessor class.
+
+So, the first assertion is represented by WidgetTitleCheck. In the checkApiResponse, you will just traverse through the associative array and test whether the 'title' field is present and it's a non-empty string. Return true if the test passes, or false if any of the described conditions is not met.
+
+The second check is TwoListsOfProductsCheck. In this case, we will find 'deals' and 'contracts' fields, and make sure they are both arrays. Again, return true or false, based on the result of the test. The array of 'deals' or 'contracts' might be empty. We should test whether at least one of these arrays is non-empty. If this was the case, Hawk should have fallen back to TopDeals!
+
+Once you have these two classes done, think whether you can "promote" the common functionality to the parent object (something like AbstractCheck), from which both your Check classes inherit (remember to use extends keyword).
+
+If you got this far and you are still up to some [optional] work, feel free to come up with any other Check-class, maybe looking into the product records themselves, or testing the "meta" fields, such as deals_count, merchants_count or territory. Have a look at the actual API response and decide, what would make sense.

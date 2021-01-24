@@ -1,0 +1,21 @@
+{
+  "name": "vendor_name/learn-php",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Simi",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "ext-json": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Monolog\\": "09-composer-namespaces-exceptions/src",
+      "Vendor\\Namespace\\": ""
+    }
+  }
+}
